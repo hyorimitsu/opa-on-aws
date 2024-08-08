@@ -1,18 +1,15 @@
 OPA(Orchestrate Platforms and Applications) on AWS
 ---
 
-This is a tool that Dockerizes [OPA(Orchestrate Platforms and Applications) on AWS](https://opaonaws.io/) for easier handling.
-
+This tool Dockerizes [OPA(Orchestrate Platforms and Applications) on AWS](https://opaonaws.io/) for easier management and deployment.
 
 ## Description
 
-This tool Dockerizes [OPA(Orchestrate Platforms and Applications) on AWS](https://opaonaws.io/).
-It provides a Dockerfile that meets the prerequisites listed in [Installation | OPA on AWS](https://opaonaws.io/docs/getting-started/deploy-the-platform#prerequisites).
-
+This tool provides a Dockerfile that meets the prerequisites listed in the [Installation guide for OPA on AWS](https://opaonaws.io/docs/getting-started/deploy-the-platform#prerequisites).
 
 ## Getting Started
 
-As an example, let's create an environment to run Node.js on ECS Fargate.
+As an example, let's create an environment to run a Node.js application on ECS Fargate.
 
 Note: Resources will be created on AWS, and charges will be incurred.
 
@@ -76,8 +73,7 @@ Note: Resources will be created on AWS, and charges will be incurred.
     | AWS_ACCESS_KEY_ID | (Access Key ID generated in the AWS section) | Access Key ID used for AWS CLI commands |
     | AWS_SECRET_ACCESS_KEY | (Secret Access Key generated in the AWS section) | Secret Access Key used for AWS CLI commands |
 
-    Finally, fill in the contents of the generated `.config` file.
-    Below is a brief explanation, but for more details, please refer to the contents of the `.config` file.
+    Finally, fill in the contents of the generated `.config` file. Below is a brief explanation, but for more details, please refer to the contents of the `.config` file.
 
     | Field | Value | Description |
     | --- | --- | --- |
@@ -86,17 +82,17 @@ Note: Resources will be created on AWS, and charges will be incurred.
     | GITLAB_AMI | (the AMI for GitLab from the Marketplace subscribed in the AWS section, obtainable with `aws ec2 describe-images --owners "aws-marketplace" --filters "Name=name,Values=*GitLab CE 16.8.1*" --query 'Images[].[ImageId]' --region <AWS_DEFAULT_REGION> --output text`) | The AMI for the GitLab service EC2 |
     | GITLAB_RUNNER_AMI | (the AMI for the GitLab runner from the Marketplace subscribed in the AWS section, obtainable with `aws ec2 describe-images --owners "amazon" --filters "Name=name,Values=*ubuntu-jammy-22.04-amd64-server-20230208*" --query 'Images[].[ImageId]' --region <AWS_DEFAULT_REGION> --output text`) | The AMI for the GitLab runner EC2 |
     | R53_HOSTED_ZONE_NAME | (the name of the public hosted zone created in the AWS section) | Route 53 hosted zone for the Backstage/OPA platform deployment |
-    | ALLOWED_IPS | (input as appropriate) | Comma separated list of IPv4 CIDR ranges to allow requests to Backstage/GitLab load balancers |
+    | ALLOWED_IPS | (input as appropriate) | Comma-separated list of IPv4 CIDR ranges to allow requests to Backstage/GitLab load balancers |
     | OKTA_API_TOKEN | (the token generated in the Okta Developer section) | Okta's Security API Token |
-    | OKTA_AUDIENCE | (the org URL for your Okta domain (e.g. https://dev-12345678.okta.com)) | Okta's Audience |
+    | OKTA_AUDIENCE | (the org URL for your Okta domain) | Okta's Audience (e.g. https://dev-12345678.okta.com) |
     | OKTA_AUTH_SERVER_ID | (blank) | Okta's Auth Server ID |
     | OKTA_CLIENT_ID | (the Client ID generated in the Okta Developer section) | Okta's Applications Client ID |
     | OKTA_CLIENT_SECRET | (the Client Secret generated in the Okta Developer section) | Okta's Applications Client Secret |
     | OKTA_IDP | (blank) | Okta's IDP |
     | SECRET_GITLAB_CONFIG_PROP_apiToken | (blank) | The token to use for calling GitLab APIs |
-    | CUSTOMER_NAME | (input as appropriate) | The name of the Backstage hosting organization<br>This will be displayed in the UI |
-    | CUSTOMER_LOGO | (input as appropriate) | URL to an organization logo<br>This will be displayed for branding in the UI |
-    | CUSTOMER_LOGO_ICON | (input as appropriate) | URL to the icon image of the hosting organization logo<br>This will be displayed for branding in the UI |
+    | CUSTOMER_NAME | (input as appropriate) | The name of the Backstage hosting organization. This will be displayed in the UI |
+    | CUSTOMER_LOGO | (input as appropriate) | URL to an organization logo. This will be displayed for branding in the UI |
+    | CUSTOMER_LOGO_ICON | (input as appropriate) | URL to the icon image of the hosting organization logo. This will be displayed for branding in the UI |
     | BACKSTAGE_SCAFFOLDER_NAME | (input as appropriate) | Committer name used by the Backstage scaffolder for git commits |
     | BACKSTAGE_SCAFFOLDER_EMAIL | (input as appropriate) | Email address used by the Backstage scaffolder for git commits |
     | POSTGRES_* | (input as appropriate) | Backstage database configurations for local testing |
@@ -184,7 +180,7 @@ Create an IAM Role with the following settings:
     | Prefix | ecsdev |
     | Description | A Dev environment provider for containerized applications |
     | AWS Account number | <AWS_ACCOUNT_ID> |
-    | AWS Region | (Any AWS region) |
+    | AWS Region | (input as appropriate) |
     | Environment Role ARN | arn:aws:iam::<AWS_ACCOUNT_ID>:role/opa-envprovisioning-role |
     | VPC Configuration | Create New VPC |
     | CIDR | 10.0.0.0/24 |
@@ -247,7 +243,7 @@ Create an IAM Role with the following settings:
     | GitLab Repository | aws-app/demo-app |
     | AWS CloudFormation Stack | demo-app-ecs-resources-ecs-dev-provider |
 
-4. Show the web app
+4. Show the Web App
 
     From the OPA on AWS (Backstage) menu, select `AWS > Apps > demo-app`.
 
