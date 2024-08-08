@@ -252,13 +252,19 @@ Create an IAM Role with the following settings:
     From the OPA on AWS (Backstage) menu, select `AWS > Apps > demo-app`.
 
     By default, the Application State will be `No Task Running`, so click `START TASK` to run the task.
-    ![opa_how_to_use_4](./docs/img/opa_how_to_use_4.png)
+    <div style="text-align: center;">
+      <img src="https://github.com/hyorimitsu/opa-on-aws/blob/main/docs/img/opa_how_to_use_4.png" alt="opa_how_to_use_4" width="70%">
+    </div>
 
     Once the task is `RUNNING`, you can access the application from the `Go to app` link in Links.
-    ![opa_how_to_use_5](./docs/img/opa_how_to_use_5.png)
+    <div style="text-align: center;">
+      <img src="https://github.com/hyorimitsu/opa-on-aws/blob/main/docs/img/opa_how_to_use_5.png" alt="opa_how_to_use_5" width="70%">
+    </div>
 
     If the following page is displayed, building the application is a success.
-    ![opa_how_to_use_6](./docs/img/opa_how_to_use_6.png)
+    <div style="text-align: center;">
+      <img src="https://github.com/hyorimitsu/opa-on-aws/blob/main/docs/img/opa_how_to_use_6.png" alt="opa_how_to_use_6" width="70%">
+    </div>
 
 ### Troubleshooting
 
